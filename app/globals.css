@@ -1,26 +1,400 @@
-@import "tailwindcss";
+/* app/globals.css */
 
+/* ---------- Design tokens ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --panel2: #fbfbfe;
+  --text: #0f172a;
+  --muted: #475569;
+  --muted2: #64748b;
+  --border: rgba(15, 23, 42, 0.12);
+  --shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
+  --shadow-sm: 0 6px 16px rgba(2, 6, 23, 0.08);
+
+  --brand: #4f46e5;      /* indigo */
+  --brand2: #7c3aed;     /* violet */
+  --brand-soft: rgba(79, 70, 229, 0.12);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  --ring: 0 0 0 4px rgba(79, 70, 229, 0.18);
+
+  --font-ui: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  color: var(--text);
+  background:
+    radial-gradient(1200px 700px at 20% -10%, rgba(79,70,229,0.16), transparent 60%),
+    radial-gradient(900px 600px at 110% 10%, rgba(124,58,237,0.14), transparent 55%),
+    var(--bg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---------- Layout shell ---------- */
+.mainShell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 16px 32px;
+}
+
+.topBar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.brandBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brandTitle {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+.brandSubtitle {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------- Panels / cards ---------- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
+
+.panelInner {
+  padding: 14px;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 2px 0 10px;
+}
+
+.card {
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+
+.hr {
+  height: 1px;
+  background: rgba(15, 23, 42, 0.10);
+  margin: 14px 0;
+}
+
+/* ---------- Form controls ---------- */
+label { font-size: 13px; color: var(--muted); }
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text);
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+button:focus-visible {
+  box-shadow: var(--ring);
+  border-color: rgba(79,70,229,0.45);
+}
+
+input[type="range"] { width: 100%; }
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---------- Buttons ---------- */
+.btnRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+button {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+button:hover { transform: translateY(-1px); }
+button:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+.btnPrimary {
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  color: white;
+  border: none;
+  box-shadow: 0 10px 20px rgba(79,70,229,0.22);
+}
+
+.btnPrimary:hover { box-shadow: 0 12px 26px rgba(79,70,229,0.26); }
+
+.btnSoft {
+  background: rgba(79,70,229,0.08);
+  border-color: rgba(79,70,229,0.22);
+}
+
+.btnGhost {
+  background: transparent;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: white;
+}
+
+.smallHint {
+  font-size: 12px;
+  color: var(--muted2);
+  margin-top: 6px;
+  line-height: 1.35;
+}
+
+/* ---------- Segmented control ---------- */
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: white;
+}
+
+.segBtn {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 10px 12px;
+  font-weight: 800;
+}
+
+.segBtn[aria-pressed="true"] {
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+
+/* ---------- Preview area ---------- */
+.printArea {
+  background: rgba(255,255,255,0.55);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  position: sticky;
+  top: 14px;
+}
+
+@media (max-width: 980px) {
+  .printArea { position: static; }
+}
+
+/* ---------- Typed preview box ---------- */
+.sigPreviewBox {
+  border: 1px dashed rgba(15,23,42,0.18);
+  border-radius: 14px;
+  padding: 12px;
+  background: white;
+}
+
+/* ---------- Handwriting canvas ---------- */
+.padCanvas {
+  width: 100%;
+  height: 220px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: white;
+}
+
+/* ---------- Worksheet styles (keep yours, slightly refined) ---------- */
+.worksheetPage {
+  background: white;
+  padding: 0.6in;
+  border-radius: 10px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+}
+
+.worksheetPage.letter { width: 8.5in; min-height: 11in; }
+.worksheetPage.a4 { width: 210mm; min-height: 297mm; }
+
+.worksheetHeader { margin-bottom: 18px; }
+.worksheetTitle { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+.worksheetSubtitle { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+.practiceRow {
+  position: relative;
+  height: 0.75in;
+}
+
+.ghost {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  pointer-events: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ghostImg {
+  height: 0.55in;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.baseline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  border-bottom: 2px dotted #777;
+}
+
+/* ---------- PRINT ---------- */
+@media print {
+  .topBar, .appUI, .panel, .printArea { box-shadow: none !important; }
+  .appUI { display: none !important; }
+  .printArea { border: none !important; padding: 0 !important; background: transparent !important; }
+  .worksheetPage { box-shadow: none !important; border-radius: 0 !important; }
+
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+}
+
+/* Sampler */
+.samplerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.samplerItem {
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.samplerLabel {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted2);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.samplerImg {
+  height: 0.65in;
+  width: auto;
+}
+
+.samplerPracticeRow {
+  position: relative;
+  height: 0.55in;
+  margin-top: 10px;
+}
+
+.samplerBaseline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  border-bottom: 2px dotted #777;
+}
+
+/* Cut-out */
+.cutoutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.22in;
+}
+
+.cutoutCell {
+  border: 1px dashed rgba(15, 23, 42, 0.28);
+  border-radius: 12px;
+  padding: 0.18in;
+  height: 1.25in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cutoutContent {
+  opacity: 1;
+  text-align: center;
+  width: 100%;
+}
+
+.cutoutImg {
+  height: 0.6in;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
