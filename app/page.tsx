@@ -1,5 +1,6 @@
 import SignatureBuilderClientOnly from "@/components/SignatureBuilderClientOnly";
 import { Great_Vibes } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const brandFont = Great_Vibes({
   weight: "400",
