@@ -155,6 +155,12 @@ input[type="range"] { width: 100%; }
   font-size: 13px;
 }
 
+a.btnPrimary, a.btnSoft, a.btnGhost {
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 800;
+}
+
 /* ---------- Buttons ---------- */
 .btnRow {
   display: flex;
@@ -398,3 +404,699 @@ button:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
   object-fit: contain;
 }
 
+/* ---------- Landing page styles ---------- */
+
+.landingHero {
+  border-radius: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background:
+    radial-gradient(1200px 700px at 20% -20%, rgba(79,70,229,0.22), transparent 60%),
+    radial-gradient(900px 600px at 110% 10%, rgba(124,58,237,0.18), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.50));
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.10);
+  overflow: hidden;
+}
+
+.heroInner {
+  padding: 28px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .heroInner { padding: 18px; }
+  .heroGrid { grid-template-columns: 1fr; }
+}
+
+.heroBadgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: rgba(255,255,255,0.8);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted2);
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 4px rgba(79,70,229,0.12);
+}
+
+.heroTitle {
+  font-size: 46px;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  margin: 8px 0 10px;
+}
+
+@media (max-width: 980px) {
+  .heroTitle { font-size: 38px; }
+}
+
+.heroText {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 52ch;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.linkBtn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 900;
+}
+
+.linkPrimary {
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  color: white;
+  box-shadow: 0 10px 20px rgba(79,70,229,0.22);
+}
+
+.linkPrimary:hover { box-shadow: 0 12px 26px rgba(79,70,229,0.26); }
+
+.linkSecondary {
+  background: rgba(79,70,229,0.08);
+  border: 1px solid rgba(79,70,229,0.22);
+  color: var(--text);
+}
+
+.heroNote {
+  margin-top: 10px;
+  color: var(--muted2);
+  font-size: 12px;
+}
+
+.heroPreview {
+  border-radius: 18px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: rgba(255,255,255,0.78);
+  box-shadow: 0 16px 34px rgba(2, 6, 23, 0.10);
+  overflow: hidden;
+}
+
+.previewTop {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 12px 10px;
+  border-bottom: 1px solid rgba(15,23,42,0.08);
+}
+
+.dot {
+  width: 10px; height: 10px; border-radius: 999px;
+  background: rgba(15,23,42,0.12);
+}
+
+.previewBody {
+  padding: 14px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.65));
+}
+
+.previewSheet {
+  border-radius: 14px;
+  border: 1px solid rgba(15,23,42,0.10);
+  background: white;
+  padding: 14px;
+}
+
+.previewHeading {
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.previewSub {
+  margin-top: 4px;
+  color: var(--muted2);
+  font-size: 12px;
+}
+
+.previewRows {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.previewRow {
+  height: 30px;
+  position: relative;
+  border-radius: 10px;
+  background: rgba(15,23,42,0.03);
+  overflow: hidden;
+}
+
+.previewGhost {
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  height: 18px;
+  width: 65%;
+  border-radius: 999px;
+  background: rgba(15,23,42,0.08);
+}
+
+.previewLine {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 7px;
+  border-bottom: 2px dotted rgba(15,23,42,0.35);
+}
+
+.landingSection {
+  margin-top: 18px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.sectionTitleBig {
+  font-size: 18px;
+  font-weight: 950;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.sectionKicker {
+  font-size: 12px;
+  color: var(--muted2);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 980px) {
+  .featureGrid { grid-template-columns: 1fr; }
+}
+
+.featureCard {
+  border-radius: 16px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: rgba(255,255,255,0.75);
+  box-shadow: 0 12px 26px rgba(2,6,23,0.08);
+  padding: 14px;
+}
+
+.featureIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: rgba(79,70,229,0.10);
+  border: 1px solid rgba(79,70,229,0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 950;
+  color: var(--brand);
+  margin-bottom: 10px;
+}
+
+.featureTitle {
+  font-weight: 950;
+  margin-bottom: 6px;
+}
+
+.featureText {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.worksheetGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 980px) {
+  .worksheetGrid { grid-template-columns: 1fr; }
+}
+
+.worksheetCard {
+  border-radius: 16px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: rgba(255,255,255,0.78);
+  padding: 14px;
+  box-shadow: 0 12px 26px rgba(2,6,23,0.08);
+}
+
+.worksheetMini {
+  border-radius: 12px;
+  border: 1px solid rgba(15,23,42,0.10);
+  background: white;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.miniLine {
+  height: 22px;
+  border-radius: 10px;
+  background: rgba(15,23,42,0.03);
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.miniLine:first-child { margin-top: 0; }
+.miniLine::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  border-bottom: 2px dotted rgba(15,23,42,0.35);
+}
+
+.landingFooter {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--muted2);
+  font-size: 12px;
+}
+
+/* ---------- Minimal "Apple-like" landing ---------- */
+
+.appleLanding {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 28px 16px 40px;
+}
+
+/* Hero */
+.appleHero {
+  border-radius: 28px;
+  border: 1px solid rgba(15,23,42,0.10);
+  background:
+    radial-gradient(1200px 700px at 20% -20%, rgba(79,70,229,0.22), transparent 60%),
+    radial-gradient(900px 600px at 110% 10%, rgba(124,58,237,0.18), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.50));
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.10);
+  padding: 44px 42px;
+}
+
+
+@media (max-width: 980px) {
+  .appleHero { padding: 28px 18px; }
+}
+
+.appleHeroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .appleHeroGrid { grid-template-columns: 1fr; }
+}
+
+.appleKicker {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  font-weight: 900;
+}
+
+.appleH1 {
+  margin: 10px 0 10px;
+  font-size: 54px;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 980px) {
+  .appleH1 { font-size: 40px; }
+}
+
+.appleLead {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 56ch;
+}
+
+.appleCtas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.appleBtn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 900;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: white;
+  color: var(--text);
+}
+
+.appleBtnPrimary {
+  background: #111827; /* near-black */
+  color: white;
+  border-color: #111827;
+}
+
+.appleBtnPrimary:hover { opacity: 0.92; }
+.appleBtn:hover { transform: translateY(-1px); }
+
+.appleNote {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted2);
+}
+
+/* Hero preview (minimal, no “blocky cards”) */
+.applePreview {
+  border: 1px solid rgba(15,23,42,0.10);
+  border-radius: 22px;
+  background: rgba(255,255,255,0.92);
+  overflow: hidden;
+}
+
+.applePreviewTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(15,23,42,0.08);
+  color: var(--muted2);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.appleDots { display: flex; gap: 8px; align-items: center; }
+.appleDot {
+  width: 10px; height: 10px; border-radius: 999px;
+  background: rgba(15,23,42,0.10);
+}
+
+.applePreviewBody { padding: 16px; background: white; }
+.appleSheetMock {
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.appleSheetTitle { font-weight: 950; letter-spacing: -0.01em; }
+.appleSheetSub { margin-top: 4px; font-size: 12px; color: var(--muted2); }
+
+.appleMockRows { margin-top: 12px; display: grid; gap: 12px; }
+.appleMockRow {
+  height: 28px;
+  border-radius: 12px;
+  background: rgba(15,23,42,0.03);
+  position: relative;
+}
+.appleMockRow::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 7px;
+  border-bottom: 2px dotted rgba(15,23,42,0.28);
+}
+.appleGhostBar {
+  position: absolute;
+  left: 12px;
+  top: 7px;
+  height: 14px;
+  width: 62%;
+  border-radius: 999px;
+  background: rgba(15,23,42,0.08);
+}
+
+/* Sections */
+.appleSection {
+  margin-top: 26px;
+}
+
+.appleSectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.appleH2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 950;
+  letter-spacing: -0.02em;
+}
+
+.appleDivider {
+  height: 1px;
+  background: rgba(15,23,42,0.10);
+  margin-top: 14px;
+}
+
+/* Why it works — minimal, not “card blocks” */
+.appleWhyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 12px;
+}
+
+@media (max-width: 980px) {
+  .appleWhyGrid { grid-template-columns: 1fr; }
+}
+
+.appleWhyItem {
+  padding: 8px 0 0;
+}
+
+.appleWhyIcon {
+  width: 38px;
+  height: 38px;
+
+  /* remove frame */
+  border: none;
+  background: transparent;
+  border-radius: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--muted2); /* or #111827 for darker */
+}
+
+
+.appleWhyTitle {
+  margin-top: 10px;
+  font-weight: 950;
+}
+
+.appleWhyText {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Worksheet types — clean list style */
+.appleWorkGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+
+@media (max-width: 980px) {
+  .appleWorkGrid { grid-template-columns: 1fr; }
+}
+
+.appleWorkItem {
+  border: 1px solid rgba(15,23,42,0.10);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.86);
+  padding: 14px;
+}
+
+.appleWorkTitle { font-weight: 950; }
+.appleWorkText { margin-top: 6px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+/* Footer */
+.appleFooter {
+  margin-top: 26px;
+  text-align: center;
+  color: var(--muted2);
+  font-size: 12px;
+}
+
+/* Worksheet types as a minimal list (no cards) */
+.appleList {
+  border: 1px solid rgba(15,23,42,0.10);
+  border-radius: 20px;
+  background: rgba(255,255,255,0.86);
+  overflow: hidden;
+}
+
+.appleListItem {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  padding: 14px 14px;
+  align-items: start;
+}
+
+.appleListItem + .appleListItem {
+  border-top: 1px solid rgba(15,23,42,0.08);
+}
+
+.appleListIcon {
+  width: 38px;
+  height: 38px;
+
+  /* remove the “frame” */
+  border: none;
+  background: transparent;
+  border-radius: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--muted2);
+}
+
+
+.appleListTitle {
+  font-weight: 950;
+  letter-spacing: -0.01em;
+}
+
+.appleListText {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Restore hero text coloring to the original (pre-Apple) vibe */
+.appleHero .appleKicker {
+  color: var(--brand);              /* indigo kicker instead of gray */
+}
+
+.appleHero .appleH1 {
+  color: var(--text);       /* strong title contrast */
+
+}
+
+.appleHero .appleLead {
+  color: var(--muted);              /* readable body text */
+}
+
+.appleHero .appleNote {
+  color: var(--muted2);
+}
+
+/* Optional: restore the hero primary button to your original gradient vibe */
+.appleHero .appleBtnPrimary {
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  border-color: transparent;
+  box-shadow: 0 10px 20px rgba(79,70,229,0.22);
+}
+
+.appleHero .appleBtnPrimary:hover {
+  opacity: 1;
+  box-shadow: 0 12px 26px rgba(79,70,229,0.26);
+}
+.heroHighlight {
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Top brand bar on landing */
+.landingTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 4px 0 14px;
+}
+
+.landingBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.landingBrandName {
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.landingBrandTagline {
+  font-size: 12px;
+  color: var(--muted2);
+}
+
+.landingTopActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .landingBrandTagline { display: none; }
+}
