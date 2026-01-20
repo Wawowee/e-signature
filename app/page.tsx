@@ -10,8 +10,24 @@ export const metadata = {
     "Learn to create a signature you can actually repeat. Generate practice worksheets, a font sampler, and cut-out signature sheets. Download PDF or print.",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Signature Studio",
+  applicationCategory: "EducationalApplication",
+  operatingSystem: "Web",
+  description:
+    "Create and practice signatures with printable worksheets, font samplers, and cut-out sheets.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+};
+
 export default function HomePage() {
   return (
+        <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <main className="appleLanding">
       <header className="landingTop">
   <div className="landingBrand">
@@ -203,5 +219,6 @@ export default function HomePage() {
         © {new Date().getFullYear()} Signature Studio
       </footer>
     </main>
+    </>
   );
 }
